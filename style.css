@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #d4e3ea; /* Light sky blue background from art */
+  font-family: sans-serif;
+  color: #1e252b;
+}
+
+body.denied {
+  background-color: #b35848; /* Terracotta / Burnt orange */
+  color: #d4e3ea;
+  text-align: center;
+  padding-top: 20%;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+  border: 2px solid #3b6b79; /* Deep Teal border */
+}
+
+.character {
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+  left: 50px;
+}
+
+.excalibur {
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+  right: 30px;
+}
+
+.logo {
+  position: absolute;
+  width: 400px;
+  top: 40px;
+}
+
+.obstacle {
+  position: absolute;
+  width: 210px;
+  bottom: 0;
+  right: -50px;
+}
+
+.exc {
+  position: absolute;
+  top: 75%;
+  left: 85%;
+  width: 200px;
+  text-align: center;
+}
+
+.score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #3b6b79; /* Deep Teal */
+}
+
+#pauseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 13px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #3b6b79; /* Deep Slate Teal */
+  color: #d4e3ea;
+  border: 1px solid #1e252b;
+  box-shadow: 2px 2px 5px rgba(30, 37, 43, 0.3);
+  transition: all 0.3s ease;
+}
+
+#pauseBtn:hover {
+  background-color: #27373f;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+#startBtn {
+  position: absolute;
+  top: 40%;
+  right: 48%;
+  padding: 20px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #3b6b79; /* Warm Ochre Accent */
+  color: #1e252b;
+  border: none;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#startBtn:hover {
+  background-color: #27373f;
+  transform: scale(1.1);
+}
+
+.red {
+  position: absolute;
+  width: 80px;
+  top: 50px;
+  right: 50%;
+  text-align: center;
+}
+
+.red:hover {
+  transform: scale(1.3);
+}
+
+.eth {
+  position: absolute;
+  top: 50px;
+  right: 85%;
+  text-align: center;
+}
+
+.eth1 {
+  position: absolute;
+  top: 50px;
+  left: 85%;
+  text-align: center;
+}
+
+#gameText {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  color: #3b6b79; /* Deep Teal */
+  text-shadow: 2px 2px 0px #1e252b;
+  z-index: 10;
+}
+
+.game-over {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Comic Sans MS", cursive;
+  font-size: 48px;
+  font-weight: bold;
+  color: #b35848; /* Terracotta Red/Orange */
+  text-shadow: 2px 2px 0px #1e252b;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+
+.restart-button {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "Comic Sans MS", cursive;
+  font-weight: bold;
+  color: #1e252b;
+  background-color: #3b6b79; /* Ochre Yellow */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.restart-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #27373f;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 37, 43, 0.75); /* Charcoal Overlay */
+}
+
+.modal-content {
+  background-color: #27373f; /* Dark Slate Blue */
+  color: #d4e3ea;
+  margin: 15% auto;
+  padding: 30px;
+  border: 2px solid #3b6b79;
+  width: 400px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  border-radius: 10px;
+}
+
+.modal-content input {
+  padding: 10px;
+  width: 80%;
+  margin: 15px 0;
+  border: 1px solid #3b6b79;
+  border-radius: 5px;
+  background-color: #d4e3ea;
+  color: #1e252b;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #3b6b79; /* Ochre Yellow Button */
+  border: none;
+  color: #1e252b;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #27373f;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+  }
+
+  .game-container {
+    width: 100%;
+    height: 100dvh; /* Dynamic viewport height — mobile safe */
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+  }
+
+  .character {
+    position: absolute;
+    width: 120px;
+    bottom: 0;
+  }
+
+  .excalibur {
+    display: none; /* Hide large element on small screen */
+  }
+
+  .logo {
+    width: 150px;
+    top: 40px;
+  }
+
+  .obstacle {
+    position: absolute;
+    width: 120px;
+    right: -30px;
+    bottom: 0;
+  }
+
+  .exc {
+    width: 120px;
+    left: 70%;
+    top: 70%;
+  }
+
+  .score {
+    font-size: 20px;
+  }
+
+  #pauseBtn,
+  #startBtn,
+  .restart-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  #startBtn {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+
+  .red,
+  .eth,
+  .eth1 {
+    width: 50px;
+    top: 30%;
+  }
+
+  #gameText {
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+
+  .game-over {
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin-top: 40%;
+    font-family: sans-serif;
+  }
+
+  .modal-content input {
+    width: 90%;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  .modal-content button {
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+}

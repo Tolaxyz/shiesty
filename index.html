@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wasteland</title>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpeg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="passwordModal" class="modal">
+      <div class="modal-content">
+        <h2>Are you normal?</h2>
+        <p>Enter the password to begin:</p>
+        <input type="password" id="passwordInput" />
+        <button onclick="checkPassword()">Enter</button>
+        <p id="errorText" style="color: red; display: none">Normal is boring</p>
+      </div>
+    </div>
+
+    <div class="game-container" id="game">
+      <img src="images/character_run1.png" id="character" class="character" />
+      <img src="images/obstacle.png" id="obstacle" class="obstacle" />
+
+      <div class="score" id="score">$Waste: 0</div>
+      <div id="gameOverText" class="game-over hidden">
+        "Dear wonderer, try again - we all get second chances"
+      </div>
+      <button id="restartBtn" class="restart-button hidden">Start Again</button>
+    </div>
+    <button id="startBtn">lets go!</button>
+    <button id="pauseBtn">hold</button>
+    <div id="gameText">Be Abnormal</div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
